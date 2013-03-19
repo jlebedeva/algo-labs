@@ -136,8 +136,9 @@ public class Week4 {
 
         while (it.hasNext()) {
             Vertex v = it.next();
-            List<Vertex> list = depthFirstSearchDirect(v);
-            if (list != null && !list.isEmpty()) {
+            List<Vertex> list = new LinkedList<>();
+            depthFirstSearchDirect(list, v);
+            if (!list.isEmpty()) {
                 if (debug) {
                     System.out.println("Strictly connected component: " + list);
                 }
@@ -167,24 +168,19 @@ public class Week4 {
         }
     }
 
-    private static List<Vertex> depthFirstSearchDirect(Vertex vertex) {
+    private static List<Vertex> depthFirstSearchDirect(List<Vertex> list, Vertex vertex) {
         if (debug) {
             System.out.println("Direct search on " + vertex + " explored=" + vertex.explored);
         }
         if (!vertex.explored) { //flip back
             return null;
         } else {
-            List<Vertex> result = new LinkedList<>();
             vertex.explored = false;
             for (Vertex child : vertex.out) {
-                List<Vertex> childResult = depthFirstSearchDirect(child);
-                if (childResult != null) {
-                    //FIXME O(n) instead of O(1) even for LinkedList
-                    result.addAll(childResult);
-                }
+                depthFirstSearchDirect(list, child);
             }
-            result.add(vertex);
-            return result;
+            list.add(vertex);
+            return list;
         }
     }
 }
