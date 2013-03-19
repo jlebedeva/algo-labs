@@ -4,7 +4,6 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
@@ -15,7 +14,13 @@ import java.util.Set;
 import java.util.TreeSet;
 
 /**
- *
+ * Programming Assignment Week 4
+ * Your task is to code up the algorithm from the video lectures for computing
+ * strongly connected components (SCCs), and to run this algorithm on the given graph. 
+ * http://spark-public.s3.amazonaws.com/algo1/programming_prob/SCC.txt
+ * or
+ * http://spark-public.s3.amazonaws.com/algo1/programming_prob/SCC.zip
+ * 
  * @author jane
  */
 public class Week4 {
